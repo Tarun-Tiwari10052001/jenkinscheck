@@ -2,7 +2,12 @@ pipeline {
     agent any
 
     triggers {
-        githubPush()
+        GenericTrigger(
+            token: 'webhook-test',
+            causeString: 'GitHub push',
+            printContributedVariables: true,
+            printPostContent: false
+        )
     }
 
     stages {
